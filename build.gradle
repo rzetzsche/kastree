@@ -27,6 +27,7 @@ project(':ast:ast-common') {
         testCompile "org.jetbrains.kotlin:kotlin-test-annotations-common:$kotlin_version"
         testCompile "org.jetbrains.kotlin:kotlin-test-common:$kotlin_version"
     }
+    sourceCompatibility = '1.6'
     publishSettings(project, 'kastree-ast-common', 'Common library for Kastree AST')
 }
 
@@ -119,7 +120,7 @@ def publishSettings(project, projectName, projectDescription) {
         uploadArchives {
             repositories {
                 mavenDeployer {
-                    beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+//                    beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
                     repository(url: 'https://oss.sonatype.org/service/local/staging/deploy/maven2/') {
                         authentication(userName: ossrhUsername, password: ossrhPassword)
                     }
